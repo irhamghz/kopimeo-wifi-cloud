@@ -7,8 +7,8 @@ if (isset($_POST['click_generate'])) {
     // KONFIGURASI MIKROTIK KAFE (PORT FORWARDING ROUTER KEDAI)
     // -------------------------------------------------------------
     $mikrotik_host = 'hm20b06hfn1.sn.mynetname.net'; 
-    $winbox_user   = 'admin';                    
-    $winbox_pass   = '06121212'; 
+    $winbox_user   = 'webcloud';                    
+    $winbox_pass   = '123456'; 
     $api_port      = 8728; // Port asal API MikroTik
     // -------------------------------------------------------------
 
