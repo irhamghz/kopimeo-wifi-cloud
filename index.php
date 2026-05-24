@@ -63,16 +63,15 @@ if (isset($_POST['click_generate'])) {
         // Jika MikroTik v7 terima login, dia akan balas !done
         if (strpos($status, '!done') !== false) {
             
-            // --- PROSES TAMBAH USER HOTSPOT ---
+            // --- PROSES TAMBAH USER HOTSPOT (VERSI FIX WINBOX) ---
             send_packet($socket, "/ip/hotspot/user/add");
-            send_packet($socket, "=server=all");
             send_packet($socket, "=name=" . $voucher_code);
             send_packet($socket, "=password=" . $voucher_code);
-            send_packet($socket, "=profile=30m"); // Pastikan profile '30m' ada dalam Winbox
+            send_packet($socket, "=profile=30m"); // Sila pastikan profile '30m' wujud di Winbox (Case-Sensitive)
             send_packet($socket, "=comment=Dijana dari Web Cloud Render");
             send_packet($socket, ""); // Tamat paket hantar data
             
-            // Baca maklumbalas dari MikroTik
+            // Baca maklumbalas pengesahan dari MikroTik
             $result = read_packet($socket);
             fclose($socket);
 
@@ -85,7 +84,7 @@ if (isset($_POST['click_generate'])) {
             fclose($socket);
             $message = "<div class='alert error'>
                             <strong>❌ MikroTik Menolak Login!</strong><br>
-                            <p style='font-size:12px; margin:5px 0 0 0;'>Sila pastikan Password <strong>'0121212'</strong> untuk user <strong>'admin'</strong> adalah betul dalam Winbox.</p>
+                            <p style='font-size:12px; margin:5px 0 0 0;'>Sila pastikan Password <strong>'06121212'</strong> untuk user <strong>'admin'</strong> adalah betul dalam Winbox.</p>
                         </div>";
         }
     }
