@@ -11,8 +11,8 @@ if (isset($_POST['click_generate'])) {
     // KONFIGURASI MIKROTIK KAFE
     // -------------------------------------------------------------
     $mikrotik_host      = 'hm20b06hfn1.sn.mynetname.net'; // <-- Ganti DNS Name anda
-    $winbox_user        = 'admin';                     
-    $winbox_pass        = '06121212';               
+    $winbox_user        = 'webcloud';                     
+    $winbox_pass        = '123456';               
     // -------------------------------------------------------------
 
     // 1. KOD PHP JANA BAUCAR RAWAK 4-DIGIT SECARA AUTOMATIK
