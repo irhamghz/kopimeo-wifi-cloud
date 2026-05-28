@@ -28,7 +28,7 @@ if (isset($_POST['click_generate'])) {
         hp($s, "=name=" . $code);
         hp($s, "=password=" . $code);
         hp($s, "=profile=30m");
-        hp($s, "=limit-uptime=30m);
+        hp($s, "=limit-uptime=30m");
         hp($s, "=comment=v1");
         hp($s, "");
         
