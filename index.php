@@ -9,7 +9,7 @@ if (isset($_POST['click_generate'])) {
 
     $s = @fsockopen($host, $port, $errno, $errstr, 5);
     if (!$s) {
-        $message = "<div class='alert error'>Gagal sambung: $errstr</div>";
+        $message = "<div class='alert error'>FAIL TO CONNECT: $errstr</div>";
     } else {
         function hp($s, $t) {
             $l = strlen($t);
@@ -36,10 +36,10 @@ if (isset($_POST['click_generate'])) {
         fclose($s);
 
         if (strpos($res, '!trap') !== false) {
-            $message = "<div class='alert error'>MikroTik Tolak (Periksa Profile 30m): " . bin2hex($res) . "</div>";
+            $message = "<div class='alert error'>MIKROTIK DENY (Check Profile 30m): " . bin2hex($res) . "</div>";
         } else {
             $message = "<div class='alert success'>
-                            <h3>⚡ BAUCAR BERJAYA DIJANA</h3>
+                            <h3>⚡ VOUCHER SUCCESSFULLY GENERATED</h3>
                             <div class='voucher-box'>$code</div>
                         </div>";
         }
