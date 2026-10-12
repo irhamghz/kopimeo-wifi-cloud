@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kopimeo-wifi-cloud
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: MIKROTIK_HOST
+        sync: false
+      - key: MIKROTIK_PORT
+        sync: false
+      - key: MIKROTIK_USERNAME
+        sync: false
+      - key: MIKROTIK_PASSWORD
+        sync: false
+      - key: MIKROTIK_PROFILE
+        sync: false

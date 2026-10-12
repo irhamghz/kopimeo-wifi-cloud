@@ -5,7 +5,7 @@ class RouterosAPI {
     var $error_str;
     var $attempts = 5;
     var $delay = 2;
-    var $port = 8728;
+    var $port;
     var $timeout = 3;
     var $socket;
     var $connected = false;
@@ -38,7 +38,8 @@ class RouterosAPI {
         if ($count > 0) {
             foreach ($arr as $k => $v) {
                 $i++;
-                $this->write('=' . $k . '=' . $v, $i == $count ? true : false);
+                $prefix = (isset($k[0]) && $k[0] === '?') ? '' : '=';
+                $this->write('=' . $k . '=' . $v, $i == $count);
             }
         }
         $RESPONSE = array();
@@ -52,6 +53,7 @@ class RouterosAPI {
                         $item[$matches[1]] = $matches[2];
                     }
                 }
+                $item['_type'] = '!trap';
                 $RESPONSE[] = $item;
             } elseif ($REPLY[0] == '!trap') {
                 $item = array();
